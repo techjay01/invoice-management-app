@@ -404,13 +404,16 @@ const useGlobalStyles = (theme) => {
         .inv-divider { width: 1px; height: 72px; }
         .inv-main { flex: 1; margin: 0; }
         .inv-page { margin: 72px auto auto; }
+        .inv-drawer {
+          top: 72px; left: 0; padding: 56px;
+          width: min(616px, calc(100vw - 0));
+        }
       }
 
       @media (max-width: 768px) {
-
-        .inv-main { margin-left: 0; padding-top: 72px; }
         .inv-drawer { left: 0; width: 100%; border-radius: 0; padding: 32px 24px 120px; }
         .inv-page { padding: 48px 24px 80px; }
+
         .inv-detail-body { padding: 24px; }
         .inv-detail-top { grid-template-columns: 1fr; }
         .inv-sender-addr { text-align: left; margin-top: 32px; }
