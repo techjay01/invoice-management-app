@@ -403,7 +403,7 @@ const useGlobalStyles = (theme) => {
         .inv-sidebar-bottom { flex-direction: row; padding: 0; gap: 20px; }
         .inv-divider { width: 1px; height: 72px; }
         .inv-main { flex: 1; margin: 0; }
-        .inv-page { margin: 72px auto auto; padding: ; }
+        .inv-page { margin: 72px auto auto; }
       }
 
       @media (max-width: 768px) {
