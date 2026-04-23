@@ -17,7 +17,7 @@ const EmptyIllustration = () => (
 const EmptyState = ({ hasFilter }) => (
   <div className="inv-empty">
     <EmptyIllustration />
-    <h2>Nothing to see here</h2>
+    <h2>There is nothing here</h2>
     <p>
       {hasFilter
         ? "No invoices match your filter. Try a different status."
