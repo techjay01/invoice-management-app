@@ -16,7 +16,7 @@ const InvoiceListPage = ({ invoices, onSelect, onNew, filter, onFilterChange }) 
           <p aria-live="polite" aria-atomic="true">
             {filtered.length === 0
               ? "No invoices"
-              : `${filtered.length} invoice${filtered.length !== 1 ? "s" : ""}${filter.length ? " found" : " total"}`}
+              : `There are ${filtered.length}${filter.length ? " found" : " total"} invoice${filtered.length !== 1 ? "s" : ""}`}
           </p>
         </div>
         <div className="inv-controls">
