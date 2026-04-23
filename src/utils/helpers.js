@@ -390,8 +390,10 @@ const useGlobalStyles = (theme) => {
       .inv-modal p { font-size: 13px; color: var(--text3); line-height: 1.8; margin-bottom: 8px; }
       .inv-modal-acts { display: flex; gap: 8px; justify-content: flex-end; margin-top: 24px; }
 
+
+
       /* RESPONSIVE */
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         .inv-sidebar {
           width: 100%; height: 72px; border-radius: 0;
           flex-direction: row; padding: 0 24px 0 0;
@@ -400,6 +402,12 @@ const useGlobalStyles = (theme) => {
         .inv-logo { width: 72px; height: 72px; border-radius: 0 16px 16px 0; }
         .inv-sidebar-bottom { flex-direction: row; padding: 0; gap: 20px; }
         .inv-divider { width: 1px; height: 72px; }
+        .inv-main { flex: 1; margin: 0; }
+        .inv-page { margin: 72px auto auto; padding: ; }
+      }
+
+      @media (max-width: 768px) {
+
         .inv-main { margin-left: 0; padding-top: 72px; }
         .inv-drawer { left: 0; width: 100%; border-radius: 0; padding: 32px 24px 120px; }
         .inv-page { padding: 48px 24px 80px; }
