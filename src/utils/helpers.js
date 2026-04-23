@@ -217,7 +217,7 @@ const useGlobalStyles = (theme) => {
         transition: var(--transition);
       }
       .inv-card:hover { border-color: var(--purple); }
-      .inv-card:focus { outline: 2px solid var(--purple); outline-offset: 2px; }
+      .inv-card:focus { border: none; outline: 2px solid var(--purple); outline-offset: 2px; }
       .inv-card-id { font-weight: 700; font-size: 15px; color: var(--text1); letter-spacing: -0.25px; }
       .inv-card-id span { color: var(--text4); }
       .inv-card-due { font-size: 13px; color: var(--text3); }
@@ -312,7 +312,7 @@ const useGlobalStyles = (theme) => {
       .inv-btn-secondary:hover { background: var(--btn-sec-hover); }
       .inv-btn-danger { background: var(--red); color: white; }
       .inv-btn-danger:hover { background: var(--red-l); }
-      .inv-btn-ghost { background: var(--bg2); color: var(--btn-sec-c); border: 1px solid var(--border); }
+      .inv-btn-ghost { background: var(--sidebar); color: var(--btn-sec-c); border: 1px solid var(--border); }
       .inv-btn-ghost:hover { background: var(--bg3); }
       
       /* DRAWER */
@@ -325,7 +325,7 @@ const useGlobalStyles = (theme) => {
         position: fixed; top: 0; left: 83px; bottom: 0;
         width: min(636px, calc(100vw - 83px));
         background: var(--bg); z-index: 110; overflow-y: auto;
-        padding: 56px 56px 120px 76px;
+        padding: 56px 56px 56px 76px;
         border-radius: 0 20px 20px 0;
         animation: invSlide 0.3s cubic-bezier(0.32,0.72,0,1);
       }
