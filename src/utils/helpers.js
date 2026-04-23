@@ -111,12 +111,13 @@ const useGlobalStyles = (theme) => {
       ::-webkit-scrollbar { width: 5px; }
       ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
       .inv-layout { display: flex; min-height: 100vh; }
+
       /* SIDEBAR */
       .inv-sidebar {
         position: fixed; top: 0; left: 0; width: 103px; height: 100vh;
         background: var(--sidebar); display: flex; flex-direction: column;
         align-items: center; justify-content: space-between;
-        z-index: 100; border-radius: 0 20px 20px 0; overflow: hidden; flex-shrink: 0;
+        z-index: 200; border-radius: 0 20px 20px 0; overflow: hidden; flex-shrink: 0;
       }
       .inv-logo {
         width: 103px; height: 103px; background: var(--purple);
@@ -129,7 +130,7 @@ const useGlobalStyles = (theme) => {
       }
       .inv-logo svg { position: relative; z-index: 1; }
       .inv-sidebar-bottom { display: flex; flex-direction: column; align-items: center; gap: 24px; padding-bottom: 28px; }
-      .inv-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.1); }
+      .inv-divider { width: 103px; height: 1px; background: rgba(255,255,255,0.1); }
       .inv-theme-btn {
         background: none; border: none; cursor: pointer; padding: 8px;
         color: var(--text4); transition: var(--transition);
@@ -142,14 +143,17 @@ const useGlobalStyles = (theme) => {
         display: flex; align-items: center; justify-content: center;
         color: white; font-weight: 700; font-size: 14px;
       }
+
       /* MAIN */
       .inv-main { flex: 1; margin-left: 103px; }
       .inv-page { max-width: 780px; margin: 0 auto; padding: 72px 24px 80px; }
+
       /* LIST HEADER */
       .inv-list-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
       .inv-title h1 { font-size: 32px; font-weight: 700; color: var(--text1); letter-spacing: -1px; }
       .inv-title p { font-size: 13px; color: var(--text3); margin-top: 4px; }
       .inv-controls { display: flex; align-items: center; gap: 18px; }
+
       /* FILTER */
       .inv-filter-wrap { position: relative; }
       .inv-filter-btn {
@@ -188,6 +192,7 @@ const useGlobalStyles = (theme) => {
         flex-shrink: 0; transition: var(--transition);
       }
       .inv-check.on { background: var(--purple); border-color: var(--purple); }
+
       /* NEW BTN */
       .inv-new-btn {
         display: flex; align-items: center; gap: 16px;
@@ -198,14 +203,15 @@ const useGlobalStyles = (theme) => {
       }
       .inv-new-btn:hover { background: var(--purple-l); }
       .inv-new-icon {
-        width: 32px; height: 32px; border-radius: 50%;
+        width: 32px; height: 32px; border-radius: 50%; color: var(--purple);
         background: white; display: flex; align-items: center; justify-content: center;
       }
+
       /* CARD */
       .inv-card {
         background: var(--bg2); border-radius: var(--radius-lg);
         padding: 16px 24px;
-        display: grid; grid-template-columns: 120px 1fr auto auto auto auto;
+        display: grid; grid-template-columns: 120px 1fr 1fr auto auto auto;
         align-items: center; gap: 16px;
         cursor: pointer; border: 1px solid transparent;
         transition: var(--transition);
@@ -219,6 +225,7 @@ const useGlobalStyles = (theme) => {
       .inv-card-amt { font-weight: 700; font-size: 16px; color: var(--text1); letter-spacing: -0.8px; }
       .inv-card-arr { color: var(--purple); }
       .inv-list-wrap { display: flex; flex-direction: column; gap: 16px; }
+
       /* STATUS BADGE */
       .inv-badge {
         display: inline-flex; align-items: center; gap: 8px;
@@ -233,10 +240,12 @@ const useGlobalStyles = (theme) => {
       .inv-badge-pending::before { background: var(--pending); }
       .inv-badge-draft { background: var(--draft-bg); color: var(--draft-c); }
       .inv-badge-draft::before { background: var(--draft-c); }
+
       /* EMPTY */
       .inv-empty { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 80px; }
       .inv-empty h2 { font-size: 24px; font-weight: 700; color: var(--text1); letter-spacing: -0.75px; margin: 40px 0 24px; }
       .inv-empty p { font-size: 13px; color: var(--text3); max-width: 200px; line-height: 1.8; }
+
       /* DETAIL */
       .inv-back-btn {
         display: flex; align-items: center; gap: 24px;
@@ -266,6 +275,7 @@ const useGlobalStyles = (theme) => {
       .inv-meta-label { font-size: 13px; color: var(--text3); display: block; margin-bottom: 8px; }
       .inv-meta-val { font-size: 15px; font-weight: 700; color: var(--text1); letter-spacing: -0.25px; }
       .inv-meta-val-sm { font-size: 13px; color: var(--text3); line-height: 2; }
+
       /* ITEMS TABLE */
       .inv-items { background: var(--bg3); border-radius: var(--radius-lg); overflow: hidden; }
       .inv-items-head {
@@ -287,6 +297,7 @@ const useGlobalStyles = (theme) => {
       }
       .inv-items-total-lbl { font-size: 13px; }
       .inv-items-total-amt { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+
       /* BUTTONS */
       .inv-btn {
         border: none; border-radius: 24px; padding: 16px 24px;
@@ -303,17 +314,18 @@ const useGlobalStyles = (theme) => {
       .inv-btn-danger:hover { background: var(--red-l); }
       .inv-btn-ghost { background: var(--bg2); color: var(--btn-sec-c); border: 1px solid var(--border); }
       .inv-btn-ghost:hover { background: var(--bg3); }
+      
       /* DRAWER */
       .inv-overlay {
-        position: fixed; inset: 0; background: var(--overlay); z-index: 200;
+        position: fixed; inset: 0; background: var(--overlay); z-index: 100;
         animation: invFadeIn 0.2s ease;
       }
       @keyframes invFadeIn { from { opacity:0; } to { opacity:1; } }
       .inv-drawer {
-        position: fixed; top: 0; left: 103px; bottom: 0;
-        width: min(616px, calc(100vw - 103px));
-        background: var(--bg); z-index: 210; overflow-y: auto;
-        padding: 56px 56px 120px;
+        position: fixed; top: 0; left: 83px; bottom: 0;
+        width: min(636px, calc(100vw - 83px));
+        background: var(--bg); z-index: 110; overflow-y: auto;
+        padding: 56px 56px 120px 76px;
         border-radius: 0 20px 20px 0;
         animation: invSlide 0.3s cubic-bezier(0.32,0.72,0,1);
       }
@@ -338,12 +350,13 @@ const useGlobalStyles = (theme) => {
       .inv-field-err { font-size: 11px; color: var(--red); letter-spacing: -0.23px; }
       .inv-items-sec-title { font-size: 18px; font-weight: 700; color: var(--text3); letter-spacing: -0.38px; margin-bottom: 16px; }
       .inv-item-row {
-        display: grid; grid-template-columns: 1fr 64px 100px 40px;
-        gap: 16px; align-items: end; margin-bottom: 18px;
+        display: grid; grid-template-columns: 2fr 60px 1fr 100px 20px;
+        gap: 16px; align-items: right; margin-bottom: 18px;
       }
       .inv-item-lbl { font-size: 13px; color: var(--text3); margin-bottom: 10px; display: block; }
+      .inv-item-row input { padding: 10px; }
       .inv-item-total-disp { font-size: 15px; font-weight: 700; color: var(--text4); padding: 14px 0; }
-      .inv-del-item { background: none; border: none; cursor: pointer; color: var(--text4); transition: var(--transition); padding: 8px; display: flex; align-items: center; }
+      .inv-del-item { background: none; border: none; cursor: pointer; color: var(--text4); transition: var(--transition); }
       .inv-del-item:hover { color: var(--red); }
       .inv-del-item:focus { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 4px; }
       .inv-add-item {
@@ -360,6 +373,7 @@ const useGlobalStyles = (theme) => {
         box-shadow: 0 -10px 20px var(--bg);
       }
       .inv-drawer-footer .sp { flex: 1; }
+      
       /* MODAL */
       .inv-modal-overlay {
         position: fixed; inset: 0; background: var(--overlay); z-index: 300;
@@ -375,6 +389,7 @@ const useGlobalStyles = (theme) => {
       .inv-modal h2 { font-size: 24px; font-weight: 700; color: var(--text1); letter-spacing: -0.5px; margin-bottom: 8px; }
       .inv-modal p { font-size: 13px; color: var(--text3); line-height: 1.8; margin-bottom: 8px; }
       .inv-modal-acts { display: flex; gap: 8px; justify-content: flex-end; margin-top: 24px; }
+
       /* RESPONSIVE */
       @media (max-width: 768px) {
         .inv-sidebar {
