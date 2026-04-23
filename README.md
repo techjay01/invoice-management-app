@@ -57,7 +57,10 @@ npm run dev
 ```
 
 ### 4. Open in Browser
-Navigate to: http://localhost:5173
+Navigate to: 
+```
+http://localhost:5173
+```
 
 ### 5. Build for Production
 ```bash
@@ -180,7 +183,7 @@ This app was built with accessibility as a priority:
 
 ---
 
-## ⚖️Trade-offs & Decisions
+## Trade-offs & Decisions
 
 ### CSS-in-JS vs Separate CSS Files
 **Decision**: CSS injected via a custom `useGlobalStyles` hook using a `<style>` tag.
