@@ -1,9 +1,8 @@
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
 const Logo = () => (
-  <svg width="28" height="26" viewBox="0 0 28 26" fill="none">
-    <path fillRule="evenodd" clipRule="evenodd" d="M20.513 0C24.965 2.309 28 6.937 28 12.277C28 17.617 24.965 22.245 20.513 24.554L14 12.277L20.513 0Z" fill="white"/>
-    <path fillRule="evenodd" clipRule="evenodd" d="M7.487 0C3.035 2.309 0 6.937 0 12.277C0 17.617 3.035 22.245 7.487 24.554L14 12.277L7.487 0Z" fill="white" fillOpacity="0.5"/>
+  <svg width="48" height="48" viewBox="0 0 28 26" fill="none">
+    <path fillRule="evenodd" clipRule="evenodd" d="M 14 13 L 18.59 3.55 A 12 12 0 1 1 9.41 3.55 Z" fill="white"/>
   </svg>
 );
 

@@ -121,11 +121,11 @@ const useGlobalStyles = (theme) => {
       .inv-logo {
         width: 103px; height: 103px; background: var(--purple);
         display: flex; align-items: center; justify-content: center;
-        position: relative; border-radius: 0 20px 20px 0; cursor: pointer;
+        position: relative; border-radius: 0 0 20px 0; cursor: pointer;
       }
       .inv-logo::after {
         content:''; position: absolute; bottom: 0; left: 0; right: 0; height: 50%;
-        background: var(--purple-l); border-radius: 20px 0 0 0;
+        background: var(--purple-l); border-radius: 20px 0 20px 0;
       }
       .inv-logo svg { position: relative; z-index: 1; }
       .inv-sidebar-bottom { display: flex; flex-direction: column; align-items: center; gap: 24px; padding-bottom: 28px; }
@@ -378,11 +378,11 @@ const useGlobalStyles = (theme) => {
       /* RESPONSIVE */
       @media (max-width: 768px) {
         .inv-sidebar {
-          width: 100%; height: 72px; border-radius: 0 0 20px 20px;
-          flex-direction: row; padding: 0 24px;
+          width: 100%; height: 72px; border-radius: 0;
+          flex-direction: row; padding: 0 24px 0 0;
           top: 0; left: 0; right: 0; bottom: auto;
         }
-        .inv-logo { width: 72px; height: 72px; border-radius: 0 0 16px 0; }
+        .inv-logo { width: 72px; height: 72px; border-radius: 0 16px 16px 0; }
         .inv-sidebar-bottom { flex-direction: row; padding: 0; gap: 20px; }
         .inv-divider { width: 1px; height: 72px; }
         .inv-main { margin-left: 0; padding-top: 72px; }
