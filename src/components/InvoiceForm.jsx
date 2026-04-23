@@ -155,7 +155,7 @@ const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
         aria-label={mode === "create" ? "Create new invoice" : `Edit invoice #${invoice?.id}`}
       >
         <h2 ref={firstFocusRef} tabIndex={-1}>
-          {mode === "create" ? "New Invoice" : <><span>#</span>{invoice?.id}</>}
+          {mode === "create" ? "New Invoice" : <>Edit <span>#</span>{invoice?.id}</>}
         </h2>
 
         {/* Bill From */}
@@ -207,7 +207,7 @@ const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
             </select>
           </div>
           <div className={`inv-field${errors.description ? " err" : ""}`} style={{ gridColumn: "1/-1" }}>
-            <label htmlFor="form-description">Project / Description</label>
+            <label htmlFor="form-description">Project Description</label>
             <input
               id="form-description"
               className={`inv-input${errors.description ? " err" : ""}`}
@@ -223,11 +223,18 @@ const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
         {/* Items */}
         <p className="inv-items-sec-title" style={{ marginTop: 40 }}>Item List</p>
         {errors.items && <p className="inv-form-err-banner" role="alert">{errors.items}</p>}
+        
+        <div className="inv-item-row">
+            <span className="inv-item-lbl">Item Name</span>
+            <span className="inv-item-lbl">Qty.</span>
+            <span className="inv-item-lbl">Price</span>
+            <span className="inv-item-lbl">Total</span>
+        </div>
 
         {form.items.map((item, idx) => (
           <div key={idx} className="inv-item-row">
             <div>
-              <span className="inv-item-lbl" id={`ilbl-name-${idx}`}>Item Name</span>
+              <span style={{ display: "none" }} id={`ilbl-name-${idx}`}>Item Name</span>
               <input
                 aria-labelledby={`ilbl-name-${idx}`}
                 className={`inv-input${errors[`iname${idx}`] ? " err" : ""}`}
@@ -238,7 +245,7 @@ const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
               {errors[`iname${idx}`] && <span className="inv-field-err" role="alert">{errors[`iname${idx}`]}</span>}
             </div>
             <div>
-              <span className="inv-item-lbl" id={`ilbl-qty-${idx}`}>Qty.</span>
+              <span style={{ display: "none" }} id={`ilbl-qty-${idx}`}>Qty.</span>
               <input
                 aria-labelledby={`ilbl-qty-${idx}`}
                 type="number" min="1"
@@ -248,7 +255,7 @@ const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
               />
             </div>
             <div>
-              <span className="inv-item-lbl" id={`ilbl-price-${idx}`}>Price</span>
+              <span style={{ display: "none" }} id={`ilbl-price-${idx}`}>Price</span>
               <input
                 aria-labelledby={`ilbl-price-${idx}`}
                 type="number" min="0" step="0.01"
@@ -258,7 +265,7 @@ const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
               />
             </div>
             <div>
-              <span className="inv-item-lbl">Total</span>
+              <span style={{ display: "none" }}>Total</span>
               <div className="inv-item-total-disp" aria-label={`Item total: ${formatCurrency(item.total)}`}>
                 {formatCurrency(item.total)}
               </div>
