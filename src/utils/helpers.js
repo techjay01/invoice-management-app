@@ -162,6 +162,8 @@ const useGlobalStyles = (theme) => {
         color: var(--text1); font-weight: 700; font-size: 15px;
         letter-spacing: -0.25px; padding: 4px; transition: var(--transition);
       }
+      .inv-filter-btn .full-text { display: inline; }
+      .inv-filter-btn .short-text { display: none; }
       .inv-filter-btn:hover { color: var(--purple); }
       .inv-filter-btn svg { transition: transform 0.2s; }
       .inv-filter-btn.open svg { transform: rotate(180deg); }
@@ -202,8 +204,10 @@ const useGlobalStyles = (theme) => {
         letter-spacing: -0.25px; transition: var(--transition); white-space: nowrap;
       }
       .inv-new-btn:hover { background: var(--purple-l); }
+      .inv-new-btn .long-text { display: inline; }
+      .inv-new-btn .short-text { display: none; }
       .inv-new-icon {
-        width: 32px; height: 32px; border-radius: 50%; color: var(--purple);
+        width: 32px; height: 32px; border-radius: 50%; color: var(--purple); 
         background: white; display: flex; align-items: center; justify-content: center;
       }
 
@@ -434,15 +438,17 @@ const useGlobalStyles = (theme) => {
         .inv-card-amt { grid-column: 1; grid-row: 3; font-size: 18px; }
         .inv-badge { grid-column: 2; grid-row: 2 / span 2; align-self: center; }
         .inv-card-arr { display: none; }
-        
-      }
-      @media (max-width: 480px) {
-        .inv-form-grid.c2 { grid-template-columns: 1fr; }
         .inv-form-grid.c3 { grid-template-columns: 1fr 1fr; }
-        .inv-item-row { grid-template-columns: 1fr 56px 80px 32px; gap: 10px; }
+        .inv-form-grid.c3 > *:nth-child(3) { grid-column: 1 / -1; }
+        .inv-form-grid.c2 { grid-template-columns: 1fr; }
+        .inv-item-row { grid-template-columns: 1fr 2fr 9em 1em; gap: 0.8em; }
+        .inv-item-row > *:first-child { grid-column: 1 / -1;}
         .inv-title h1 { font-size: 22px; }
-        .inv-new-btn span:not(.inv-new-icon) { display: none; }
-        .inv-filter-btn span { display: none; }
+        .inv-filter-btn .full-text { display: none; }
+        .inv-filter-btn .short-text { display: inline; }
+        .inv-new-btn .long-text { display: none; }
+        .inv-new-btn .short-text { display: inline; }
+        
       }
     `;
   }, [theme]);

@@ -26,7 +26,8 @@ const FilterDropdown = ({ selected, onChange }) => {
         aria-expanded={open}
         aria-label="Filter invoices by status"
       >
-        <span>Filter by status</span>
+        <span className="full-text">Filter by status</span>
+        <span className="short-text">Filter</span>
         <ChevronDown />
       </button>
       {open && (

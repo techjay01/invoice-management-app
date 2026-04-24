@@ -23,7 +23,8 @@ const InvoiceListPage = ({ invoices, onSelect, onNew, filter, onFilterChange }) 
           <FilterDropdown selected={filter} onChange={onFilterChange} />
           <button className="inv-new-btn" onClick={onNew} type="button" aria-label="Create new invoice">
             <span className="inv-new-icon"><PlusIcon /></span>
-            <span>New Invoice</span>
+            <span className="long-text">New Invoice</span>
+            <span className="short-text">New</span>
           </button>
         </div>
       </div>
