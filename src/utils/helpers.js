@@ -361,6 +361,7 @@ const useGlobalStyles = (theme) => {
         gap: 16px; align-items: right; margin-bottom: 18px;
       }
       .inv-item-lbl { font-size: 13px; color: var(--text3); margin-bottom: 10px; display: block; }
+      .inv-item-lbl2 { display: none; }
       .inv-item-row input { padding: 10px; }
       .inv-item-total-disp { font-size: 15px; font-weight: 700; color: var(--text4); padding: 14px 0; }
       .inv-del-item { background: none; border: none; cursor: pointer; color: var(--text4); transition: var(--transition); }
@@ -434,7 +435,9 @@ const useGlobalStyles = (theme) => {
         .inv-item-meta {
           display: block; grid-column: 1 / 2; grid-row: 2;
           font-size: 12px; color: var(--text3);
-        }  
+        }
+        .inv-item-lbl { display: none; }
+        .inv-item-lbl2 { font-size: 13px; color: var(--text3); margin-bottom: 10px; display: block; }
         .inv-item-total { grid-column: 2 / 3; grid-row: 1; }
         .inv-item-qty, .inv-item-price { display: none; }
         .inv-status-bar { flex-wrap: wrap; gap: 16px; }
