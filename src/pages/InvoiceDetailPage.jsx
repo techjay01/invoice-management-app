@@ -103,6 +103,7 @@ const InvoiceDetailPage = ({ invoice, onBack, onEdit, onDelete, onMarkPaid }) =>
         {invoice.items?.map((item, i) => (
           <div key={i} className="inv-items-row" aria-label={`${item.name}: ${item.quantity} × ${formatCurrency(item.price)} = ${formatCurrency(item.total)}`}>
             <span className="inv-item-name">{item.name}</span>
+            <span className="inv-item-meta">{`${item.quantity} × ${formatCurrency(item.price)}`}</span>
             <span className="inv-item-qty">{item.quantity}</span>
             <span className="inv-item-price">{formatCurrency(item.price)}</span>
             <span className="inv-item-total">{formatCurrency(item.total)}</span>

@@ -295,6 +295,7 @@ const useGlobalStyles = (theme) => {
       .inv-item-qty { font-weight: 700; color: var(--text3); font-size: 15px; text-align: center; }
       .inv-item-price { font-weight: 700; color: var(--text3); font-size: 15px; text-align: right; }
       .inv-item-total { font-weight: 700; color: var(--text1); font-size: 15px; text-align: right; }
+      .inv-item-meta { display: none; }
       .inv-items-total {
         background: var(--total-bg); border-radius: 0 0 var(--radius-lg) var(--radius-lg);
         padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; color: white;
@@ -422,7 +423,13 @@ const useGlobalStyles = (theme) => {
         .inv-sender-addr { text-align: left; margin-top: 32px; }
         .inv-meta { grid-template-columns: 1fr 1fr; }
         .inv-items-head { display: none; }
-        .inv-items-row { grid-template-columns: 1fr auto; padding: 16px 24px; }
+        .inv-items-row { grid-template-columns: 1fr auto; padding: 16px 24px; row-gap: 6px; }
+        .inv-item-name { grid-column: 1 / 2; grid-row: 1; }
+        .inv-item-meta {
+          display: block; grid-column: 1 / 2; grid-row: 2;
+          font-size: 12px; color: var(--text3);
+        }  
+        .inv-item-total { grid-column: 2 / 3; grid-row: 1; }
         .inv-item-qty, .inv-item-price { display: none; }
         .inv-status-bar { flex-wrap: wrap; gap: 16px; }
         .inv-status-left { width: 100%; justify-content: space-between; }
