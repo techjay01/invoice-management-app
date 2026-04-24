@@ -90,7 +90,7 @@ const useGlobalStyles = (theme) => {
         --font: 'League Spartan', sans-serif;
         ${theme === "dark" ? `
           --bg: #141625; --bg2: #1E2139; --bg3: #252945; --bg4: #0C0E16;
-          --text1: #FFFFFF; --text2: #DFE3FA; --text3: #888EB0; --text4: #7E88C3;
+          --text1: #FFFFFF; --text2: #DFE3FA; --text2b: #DFE3FA; --text3: #888EB0; --text4: #7E88C3;
           --border: #252945; --input-bg: #1E2139; --sidebar: #1E2139;
           --card-hover: #252945; --overlay: rgba(0,0,0,0.55);
           --draft-c: #DFE3FA; --draft-bg: rgba(223,227,250,0.06);
@@ -98,7 +98,7 @@ const useGlobalStyles = (theme) => {
           --total-bg: #0C0E16;
         ` : `
           --bg: #F8F8FB; --bg2: #FFFFFF; --bg3: #F9FAFE; --bg4: #F8F8FB;
-          --text1: #0C0E16; --text2: #373B53; --text3: #888EB0; --text4: #7E88C3;
+          --text1: #0C0E16; --text2: #373B53; --text2b: #DFE3FA; --text3: #888EB0; --text4: #7E88C3;
           --border: #DFE3FA; --input-bg: #FFFFFF; --sidebar: #373B53;
           --card-hover: #F9FAFE; --overlay: rgba(0,0,0,0.5);
           --draft-c: #373B53; --draft-bg: rgba(55,59,83,0.06);
@@ -136,7 +136,7 @@ const useGlobalStyles = (theme) => {
         color: var(--text4); transition: var(--transition);
         display: flex; align-items: center; justify-content: center;
       }
-      .inv-theme-btn:hover { color: var(--text2); }
+      .inv-theme-btn:hover { color: var(--text2b); }
       .inv-avatar {
         width: 40px; height: 40px; border-radius: 50%;
         background: linear-gradient(135deg, var(--purple), var(--purple-l));
