@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { TrashIcon } from './Icons';
 import { formatCurrency, addDays, todayStr, genId } from '../utils/helpers';
+import { ChevronRight } from './Icons';
 
 // ─── Invoice Form ─────────────────────────────────────────────────────────────
 
 const BLANK_ITEM = { name: "", quantity: 1, price: 0, total: 0 };
 
-const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
+const InvoiceForm = ({ mode, invoice, onClose, onBack, onSave }) => {
   const [form, setForm] = useState(() => {
     if (invoice) {
       return {
@@ -155,6 +156,10 @@ const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
         aria-label={mode === "create" ? "Create new invoice" : `Edit invoice #${invoice?.id}`}
       >
         <div className="inv-drawer-top">
+            <button className="inv-back-btn drawer-back-btn" onClick={onBack} type="button">
+              <span style={{ transform: "rotate(180deg)", display: "inline-flex" }}><ChevronRight /></span>
+              Go back
+            </button>
             <h2 ref={firstFocusRef} tabIndex={-1}>
               {mode === "create" ? "New Invoice" : <>Edit <span>#</span>{invoice?.id}</>}
             </h2>

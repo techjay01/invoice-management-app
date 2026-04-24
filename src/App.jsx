@@ -99,6 +99,7 @@ export default function App() {
             mode={formMode}
             invoice={formMode === "edit" ? selectedInvoice : null}
             onClose={() => setShowForm(false)}
+            onBack={() => setShowForm(false)}
             onSave={handleSave}
           />
         )}

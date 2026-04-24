@@ -336,6 +336,7 @@ const useGlobalStyles = (theme) => {
         animation: invSlide 0.3s cubic-bezier(0.32,0.72,0,1);
       }
       .inv-drawer-top { overflow-y: auto; padding: 56px 56px 0 76px; }
+      .drawer-back-btn { display: none; }
       @keyframes invSlide { from { transform: translateX(-100%); } to { transform: translateX(0); } }
       .inv-drawer h2 { font-size: 24px; font-weight: 700; color: var(--text1); letter-spacing: -0.5px; margin-bottom: 48px; }
       .inv-drawer h2 span { color: var(--text4); }
@@ -417,6 +418,7 @@ const useGlobalStyles = (theme) => {
           width: min(616px, calc(100vw - 0));
         }
         .inv-drawer-top { padding: 56px 56px 0; }
+        .drawer-back-btn { display: flex; }
         .inv-drawer-footer { padding: 32px 56px; }
       }
 
