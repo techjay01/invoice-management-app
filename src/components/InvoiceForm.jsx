@@ -154,150 +154,154 @@ const InvoiceForm = ({ mode, invoice, onClose, onSave }) => {
         aria-modal="true"
         aria-label={mode === "create" ? "Create new invoice" : `Edit invoice #${invoice?.id}`}
       >
-        <h2 ref={firstFocusRef} tabIndex={-1}>
-          {mode === "create" ? "New Invoice" : <>Edit <span>#</span>{invoice?.id}</>}
-        </h2>
+        <div className="inv-drawer-top">
+            <h2 ref={firstFocusRef} tabIndex={-1}>
+              {mode === "create" ? "New Invoice" : <>Edit <span>#</span>{invoice?.id}</>}
+            </h2>
 
-        {/* Bill From */}
-        <p className="inv-form-section">Bill From</p>
-        <div className="inv-form-grid">
-          {field("senderStreet", form.senderStreet, e => set("senderStreet", e.target.value), "Street Address")}
-        </div>
-        <div className="inv-form-grid c3">
-          {field("senderCity", form.senderCity, e => set("senderCity", e.target.value), "City")}
-          {field("senderPostCode", form.senderPostCode, e => set("senderPostCode", e.target.value), "Post Code")}
-          {field("senderCountry", form.senderCountry, e => set("senderCountry", e.target.value), "Country")}
-        </div>
-
-        {/* Bill To */}
-        <p className="inv-form-section" style={{ marginTop: 24 }}>Bill To</p>
-        <div className="inv-form-grid">
-          {field("clientName", form.clientName, e => set("clientName", e.target.value), "Client's Name")}
-          {field("clientEmail", form.clientEmail, e => set("clientEmail", e.target.value), "Client's Email", "email", "e.g. email@example.com")}
-          {field("clientStreet", form.clientStreet, e => set("clientStreet", e.target.value), "Street Address")}
-        </div>
-        <div className="inv-form-grid c3">
-          {field("clientCity", form.clientCity, e => set("clientCity", e.target.value), "City")}
-          {field("clientPostCode", form.clientPostCode, e => set("clientPostCode", e.target.value), "Post Code")}
-          {field("clientCountry", form.clientCountry, e => set("clientCountry", e.target.value), "Country")}
-        </div>
-
-        {/* Dates & Description */}
-        <div className="inv-form-grid c2" style={{ marginTop: 24 }}>
-          <div className="inv-field">
-            <label htmlFor="form-createdAt">Invoice Date</label>
-            <input
-              id="form-createdAt" type="date"
-              className="inv-input"
-              value={form.createdAt}
-              onChange={e => set("createdAt", e.target.value)}
-            />
-          </div>
-          <div className="inv-field">
-            <label htmlFor="form-paymentTerms">Payment Terms</label>
-            <select
-              id="form-paymentTerms"
-              className="inv-input"
-              value={form.paymentTerms}
-              onChange={e => set("paymentTerms", e.target.value)}
-            >
-              {[1, 7, 14, 30].map(d => (
-                <option key={d} value={d}>Net {d} {d === 1 ? "Day" : "Days"}</option>
-              ))}
-            </select>
-          </div>
-          <div className={`inv-field${errors.description ? " err" : ""}`} style={{ gridColumn: "1/-1" }}>
-            <label htmlFor="form-description">Project Description</label>
-            <input
-              id="form-description"
-              className={`inv-input${errors.description ? " err" : ""}`}
-              value={form.description}
-              onChange={e => set("description", e.target.value)}
-              placeholder="e.g. Graphic Design Service"
-              aria-invalid={!!errors.description}
-            />
-            {errors.description && <span className="inv-field-err" role="alert">{errors.description}</span>}
-          </div>
-        </div>
-
-        {/* Items */}
-        <p className="inv-items-sec-title" style={{ marginTop: 40 }}>Item List</p>
-        {errors.items && <p className="inv-form-err-banner" role="alert">{errors.items}</p>}
-        
-        <div className="inv-item-row">
-            <span className="inv-item-lbl">Item Name</span>
-            <span className="inv-item-lbl">Qty.</span>
-            <span className="inv-item-lbl">Price</span>
-            <span className="inv-item-lbl">Total</span>
-        </div>
-
-        {form.items.map((item, idx) => (
-          <div key={idx} className="inv-item-row">
-            <div>
-              <span style={{ display: "none" }} id={`ilbl-name-${idx}`}>Item Name</span>
-              <input
-                aria-labelledby={`ilbl-name-${idx}`}
-                className={`inv-input${errors[`iname${idx}`] ? " err" : ""}`}
-                value={item.name}
-                onChange={e => setItem(idx, "name", e.target.value)}
-                aria-invalid={!!errors[`iname${idx}`]}
-              />
-              {errors[`iname${idx}`] && <span className="inv-field-err" role="alert">{errors[`iname${idx}`]}</span>}
+            {/* Bill From */}
+            <p className="inv-form-section">Bill From</p>
+            <div className="inv-form-grid">
+              {field("senderStreet", form.senderStreet, e => set("senderStreet", e.target.value), "Street Address")}
             </div>
-            <div>
-              <span style={{ display: "none" }} id={`ilbl-qty-${idx}`}>Qty.</span>
-              <input
-                aria-labelledby={`ilbl-qty-${idx}`}
-                type="number" min="1"
-                className={`inv-input${errors[`iqty${idx}`] ? " err" : ""}`}
-                value={item.quantity}
-                onChange={e => setItem(idx, "quantity", e.target.value)}
-              />
+            <div className="inv-form-grid c3">
+              {field("senderCity", form.senderCity, e => set("senderCity", e.target.value), "City")}
+              {field("senderPostCode", form.senderPostCode, e => set("senderPostCode", e.target.value), "Post Code")}
+              {field("senderCountry", form.senderCountry, e => set("senderCountry", e.target.value), "Country")}
             </div>
-            <div>
-              <span style={{ display: "none" }} id={`ilbl-price-${idx}`}>Price</span>
-              <input
-                aria-labelledby={`ilbl-price-${idx}`}
-                type="number" min="0" step="0.01"
-                className={`inv-input${errors[`iprice${idx}`] ? " err" : ""}`}
-                value={item.price}
-                onChange={e => setItem(idx, "price", e.target.value)}
-              />
+
+            {/* Bill To */}
+            <p className="inv-form-section" style={{ marginTop: 24 }}>Bill To</p>
+            <div className="inv-form-grid">
+              {field("clientName", form.clientName, e => set("clientName", e.target.value), "Client's Name")}
+              {field("clientEmail", form.clientEmail, e => set("clientEmail", e.target.value), "Client's Email", "email", "e.g. email@example.com")}
+              {field("clientStreet", form.clientStreet, e => set("clientStreet", e.target.value), "Street Address")}
             </div>
-            <div>
-              <span style={{ display: "none" }}>Total</span>
-              <div className="inv-item-total-disp" aria-label={`Item total: ${formatCurrency(item.total)}`}>
-                {formatCurrency(item.total)}
+            <div className="inv-form-grid c3">
+              {field("clientCity", form.clientCity, e => set("clientCity", e.target.value), "City")}
+              {field("clientPostCode", form.clientPostCode, e => set("clientPostCode", e.target.value), "Post Code")}
+              {field("clientCountry", form.clientCountry, e => set("clientCountry", e.target.value), "Country")}
+            </div>
+
+            {/* Dates & Description */}
+            <div className="inv-form-grid c2" style={{ marginTop: 24 }}>
+              <div className="inv-field">
+                <label htmlFor="form-createdAt">Invoice Date</label>
+                <input
+                  id="form-createdAt" type="date"
+                  className="inv-input"
+                  value={form.createdAt}
+                  onChange={e => set("createdAt", e.target.value)}
+                />
+              </div>
+              <div className="inv-field">
+                <label htmlFor="form-paymentTerms">Payment Terms</label>
+                <select
+                  id="form-paymentTerms"
+                  className="inv-input"
+                  value={form.paymentTerms}
+                  onChange={e => set("paymentTerms", e.target.value)}
+                >
+                  {[1, 7, 14, 30].map(d => (
+                    <option key={d} value={d}>Net {d} {d === 1 ? "Day" : "Days"}</option>
+                  ))}
+                </select>
+              </div>
+              <div className={`inv-field${errors.description ? " err" : ""}`} style={{ gridColumn: "1/-1" }}>
+                <label htmlFor="form-description">Project Description</label>
+                <input
+                  id="form-description"
+                  className={`inv-input${errors.description ? " err" : ""}`}
+                  value={form.description}
+                  onChange={e => set("description", e.target.value)}
+                  placeholder="e.g. Graphic Design Service"
+                  aria-invalid={!!errors.description}
+                />
+                {errors.description && <span className="inv-field-err" role="alert">{errors.description}</span>}
               </div>
             </div>
-            <button
-              type="button"
-              className="inv-del-item"
-              onClick={() => removeItem(idx)}
-              aria-label={`Remove item: ${item.name || `item ${idx + 1}`}`}
-            >
-              <TrashIcon />
-            </button>
-          </div>
-        ))}
 
-        <button type="button" className="inv-add-item" onClick={addItem} aria-label="Add new item">
-          + Add New Item
-        </button>
+            {/* Items */}
+            <p className="inv-items-sec-title" style={{ marginTop: 40 }}>Item List</p>
+            {errors.items && <p className="inv-form-err-banner" role="alert">{errors.items}</p>}
+            
+            <div className="inv-item-row">
+                <span className="inv-item-lbl">Item Name</span>
+                <span className="inv-item-lbl">Qty.</span>
+                <span className="inv-item-lbl">Price</span>
+                <span className="inv-item-lbl">Total</span>
+            </div>
+
+            {form.items.map((item, idx) => (
+              <div key={idx} className="inv-item-row">
+                <div>
+                  <span style={{ display: "none" }} id={`ilbl-name-${idx}`}>Item Name</span>
+                  <input
+                    aria-labelledby={`ilbl-name-${idx}`}
+                    className={`inv-input${errors[`iname${idx}`] ? " err" : ""}`}
+                    value={item.name}
+                    onChange={e => setItem(idx, "name", e.target.value)}
+                    aria-invalid={!!errors[`iname${idx}`]}
+                  />
+                  {errors[`iname${idx}`] && <span className="inv-field-err" role="alert">{errors[`iname${idx}`]}</span>}
+                </div>
+                <div>
+                  <span style={{ display: "none" }} id={`ilbl-qty-${idx}`}>Qty.</span>
+                  <input
+                    aria-labelledby={`ilbl-qty-${idx}`}
+                    type="number" min="1"
+                    className={`inv-input${errors[`iqty${idx}`] ? " err" : ""}`}
+                    value={item.quantity}
+                    onChange={e => setItem(idx, "quantity", e.target.value)}
+                  />
+                </div>
+                <div>
+                  <span style={{ display: "none" }} id={`ilbl-price-${idx}`}>Price</span>
+                  <input
+                    aria-labelledby={`ilbl-price-${idx}`}
+                    type="number" min="0" step="0.01"
+                    className={`inv-input${errors[`iprice${idx}`] ? " err" : ""}`}
+                    value={item.price}
+                    onChange={e => setItem(idx, "price", e.target.value)}
+                  />
+                </div>
+                <div>
+                  <span style={{ display: "none" }}>Total</span>
+                  <div className="inv-item-total-disp" aria-label={`Item total: ${formatCurrency(item.total)}`}>
+                    {formatCurrency(item.total)}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  className="inv-del-item"
+                  onClick={() => removeItem(idx)}
+                  aria-label={`Remove item: ${item.name || `item ${idx + 1}`}`}
+                >
+                  <TrashIcon />
+                </button>
+              </div>
+            ))}
+
+            <button type="button" className="inv-add-item" onClick={addItem} aria-label="Add new item">
+              + Add New Item
+            </button>
+        </div>
+        
 
         {/* Footer */}
         <div className="inv-drawer-footer">
           {mode === "create" ? (
             <>
-              <button className="inv-btn inv-btn-secondary" onClick={onClose} type="button">Discard</button>
+              <button className="inv-btn inv-btn-secondary2" onClick={onClose} type="button">Discard</button>
               <div className="sp" />
               <button className="inv-btn inv-btn-ghost" onClick={() => handleSave("draft")} type="button">Save as Draft</button>
               <button className="inv-btn inv-btn-primary" onClick={() => handleSave("pending")} type="button">Save & Send</button>
             </>
           ) : (
             <>
-              <button className="inv-btn inv-btn-secondary" onClick={onClose} type="button">Cancel</button>
+              <button style={{ display: "none" }} ></button>
               <div className="sp" />
+              <button className="inv-btn inv-btn-secondary" onClick={onClose} type="button">Cancel</button>
               <button
                 className="inv-btn inv-btn-primary"
                 onClick={() => handleSave(invoice.status === "draft" ? "draft" : invoice.status)}

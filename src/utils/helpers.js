@@ -94,7 +94,7 @@ const useGlobalStyles = (theme) => {
           --border: #252945; --input-bg: #1E2139; --sidebar: #1E2139;
           --card-hover: #252945; --overlay: rgba(0,0,0,0.55);
           --draft-c: #DFE3FA; --draft-bg: rgba(223,227,250,0.06);
-          --btn-sec-bg: #252945; --btn-sec-c: #DFE3FA; --btn-sec-hover: #0C0E16;
+          --btn-sec-bg: #252945; --btn-sec-bg2: #DFE3FA; --btn-sec-c: #DFE3FA; --btn-sec-c2: #252945; --btn-sec-hover: #0C0E16;
           --total-bg: #0C0E16;
         ` : `
           --bg: #F8F8FB; --bg2: #FFFFFF; --bg3: #F9FAFE; --bg4: #F8F8FB;
@@ -102,7 +102,7 @@ const useGlobalStyles = (theme) => {
           --border: #DFE3FA; --input-bg: #FFFFFF; --sidebar: #373B53;
           --card-hover: #F9FAFE; --overlay: rgba(0,0,0,0.5);
           --draft-c: #373B53; --draft-bg: rgba(55,59,83,0.06);
-          --btn-sec-bg: #F9FAFE; --btn-sec-c: #7E88C3; --btn-sec-hover: #DFE3FA;
+          --btn-sec-bg: #F9FAFE; --btn-sec-bg2: #F9FAFE; --btn-sec-c: #7E88C3; --btn-sec-c2: #7E88C3; --btn-sec-hover: #DFE3FA;
           --total-bg: #373B53;
         `}
       }
@@ -314,7 +314,9 @@ const useGlobalStyles = (theme) => {
       .inv-btn-primary { background: var(--purple); color: white; }
       .inv-btn-primary:hover { background: var(--purple-l); }
       .inv-btn-secondary { background: var(--btn-sec-bg); color: var(--btn-sec-c); }
+      .inv-btn-secondary2 { background: var(--btn-sec-bg2); color: var(--btn-sec-c2); }
       .inv-btn-secondary:hover { background: var(--btn-sec-hover); }
+      .inv-btn-secondary2:hover { background: var(--btn-sec-hover); color: var(--btn-sec-c); }
       .inv-btn-danger { background: var(--red); color: white; }
       .inv-btn-danger:hover { background: var(--red-l); }
       .inv-btn-ghost { background: var(--sidebar); color: var(--btn-sec-c); border: 1px solid var(--border); }
@@ -329,11 +331,11 @@ const useGlobalStyles = (theme) => {
       .inv-drawer {
         position: fixed; top: 0; left: 83px; bottom: 0;
         width: min(636px, calc(100vw - 83px));
-        background: var(--bg); z-index: 110; overflow-y: auto;
-        padding: 56px 56px 56px 76px;
+        background: var(--bg); z-index: 110; padding: 0; display: flex; flex-direction: column;
         border-radius: 0 20px 20px 0;
         animation: invSlide 0.3s cubic-bezier(0.32,0.72,0,1);
       }
+      .inv-drawer-top { overflow-y: auto; padding: 56px 56px 0 76px; }
       @keyframes invSlide { from { transform: translateX(-100%); } to { transform: translateX(0); } }
       .inv-drawer h2 { font-size: 24px; font-weight: 700; color: var(--text1); letter-spacing: -0.5px; margin-bottom: 48px; }
       .inv-drawer h2 span { color: var(--text4); }
@@ -373,9 +375,9 @@ const useGlobalStyles = (theme) => {
       .inv-add-item:hover { background: var(--btn-sec-hover); }
       .inv-form-err-banner { font-size: 11px; color: var(--red); margin-bottom: 8px; }
       .inv-drawer-footer {
-        position: sticky; bottom: 0; background: var(--bg);
-        padding: 20px 0 0; display: flex; gap: 8px;
-        box-shadow: 0 -10px 20px var(--bg);
+        position: sticky; bottom: 0; background: var(--bg2); border-radius: 0 20px 20px 0;
+        padding: 32px 56px 32px 76px; display: flex; gap: 8px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4);
       }
       .inv-drawer-footer .sp { flex: 1; }
       
@@ -410,14 +412,18 @@ const useGlobalStyles = (theme) => {
         .inv-main { flex: 1; margin: 0; }
         .inv-page { margin: 72px auto auto; }
         .inv-drawer {
-          top: 72px; left: 0; padding: 56px;
+          top: 72px; left: 0; 
           width: min(616px, calc(100vw - 0));
         }
+        .inv-drawer-top { padding: 56px 56px 0; }
+        .inv-drawer-footer { padding: 32px 56px; }
       }
 
       @media (max-width: 768px) {
         .inv-page { margin-bottom: 36px; }
-        .inv-drawer { left: 0; width: 100%; border-radius: 0; padding: 32px 24px 120px; }
+        .inv-drawer { left: 0; width: 100%; border-radius: 0; }
+        .inv-drawer-top { padding: 32px 24px; }
+        .inv-drawer-footer { border-radius: 0; padding: 24px; }
         .inv-detail-body { padding: 24px; }
         .inv-detail-top { grid-template-columns: 1fr; }
         .inv-sender-addr { text-align: left; margin-top: 32px; }
