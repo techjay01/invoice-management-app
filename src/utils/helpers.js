@@ -152,6 +152,7 @@ const useGlobalStyles = (theme) => {
       .inv-list-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
       .inv-title h1 { font-size: 32px; font-weight: 700; color: var(--text1); letter-spacing: -1px; }
       .inv-title p { font-size: 13px; color: var(--text3); margin-top: 4px; }
+      .inv-title .half-text { display: none; }
       .inv-controls { display: flex; align-items: center; gap: 18px; }
 
       /* FILTER */
@@ -462,6 +463,8 @@ const useGlobalStyles = (theme) => {
         .inv-item-row { grid-template-columns: 1fr 2fr 9em 1em; gap: 0.8em; }
         .inv-item-row > *:first-child { grid-column: 1 / -1;}
         .inv-title h1 { font-size: 22px; }
+        .inv-title .full-text { display: none; }
+        .inv-title .half-text { display: flex; }
         .inv-filter-btn .full-text { display: none; }
         .inv-filter-btn .short-text { display: inline; }
         .inv-new-btn .long-text { display: none; }

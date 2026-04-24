@@ -13,10 +13,15 @@ const InvoiceListPage = ({ invoices, onSelect, onNew, filter, onFilterChange }) 
       <div className="inv-list-head">
         <div className="inv-title">
           <h1>Invoices</h1>
-          <p aria-live="polite" aria-atomic="true">
+          <p className="full-text" aria-live="polite" aria-atomic="true">
             {filtered.length === 0
               ? "No invoices"
               : `There are ${filtered.length}${filter.length ? " found" : " total"} invoice${filtered.length !== 1 ? "s" : ""}`}
+          </p>
+          <p className="half-text" aria-live="polite" aria-atomic="true">
+            {filtered.length === 0
+              ? "No invoices"
+              : `${filtered.length}${filter.length ? " found" : " total"} invoice${filtered.length !== 1 ? "s" : ""}`}
           </p>
         </div>
         <div className="inv-controls">
