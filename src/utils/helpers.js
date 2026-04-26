@@ -471,6 +471,8 @@ const useGlobalStyles = (theme) => {
         .inv-new-btn .short-text { display: inline; }
         
       }
+      @media (max-width: 480px) {
+        .inv-drawer-footer button { font-size: 12px; padding: 10px 15px; }
     `;
   }, [theme]);
 };
